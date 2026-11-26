@@ -27,7 +27,7 @@ export function renderHealth() {
     labels: POVERTY.map((d) => String(d.year)),
     values: POVERTY.map((d) => d.value),
     title: 'Poverty rate trend (% of population)',
-    unit: '% of population',
+    unit: 'Percent of population',
     color: '#0f2a3d',
   });
 

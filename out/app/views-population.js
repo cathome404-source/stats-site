@@ -13,7 +13,7 @@ export function renderPopulation() {
     labels: AGE_STRUCTURE.map((d) => d.label),
     values: AGE_STRUCTURE.map((d) => d.pct),
     title: 'Age structure (% of population)',
-    unit: '% of population',
+    unit: 'Percent of population',
   });
   const trendChart = lineChart({
     labels: POP_TREND.map((d) => String(d.year)),

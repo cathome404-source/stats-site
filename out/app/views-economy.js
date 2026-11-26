@@ -18,14 +18,14 @@ export function renderEconomy() {
     labels: INFLATION.map((d) => String(d.year)),
     values: INFLATION.map((d) => d.value),
     title: 'Inflation (% yoy, December)',
-    unit: '% year on year',
+    unit: 'Percent, year on year',
     color: '#e8a33d',
   });
   const unemploymentChart = lineChart({
     labels: UNEMPLOYMENT.map((d) => String(d.year)),
     values: UNEMPLOYMENT.map((d) => d.value),
     title: 'Unemployment (% of labour force)',
-    unit: '% of labour force',
+    unit: 'Percent of labour force',
     color: '#0f2a3d',
   });
 
