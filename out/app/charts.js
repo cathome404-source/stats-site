@@ -166,8 +166,8 @@ export function pyramidChart({ bands = [], title = '' } = {}) {
   const mid = W / 2;
   const half = mid - 56; // max bar length
   let s = svgOpen(W, H, title) + titleText(title, W);
-  s += `<text x="${mid - half / 2}" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="${TEAL}">Male %</text>`;
-  s += `<text x="${mid + half / 2}" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="${AMBER}">Female %</text>`;
+  s += `<text x="${mid - half / 2}" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="${TEAL}">Male (percent)</text>`;
+  s += `<text x="${mid + half / 2}" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="${AMBER}">Female (percent)</text>`;
   s += `<line x1="${mid}" y1="${top - 8}" x2="${mid}" y2="${H - bottom + 6}" stroke="${INK}" stroke-width="1"/>`;
   bands.forEach((b, i) => {
     const m = Number(b.male) || 0;

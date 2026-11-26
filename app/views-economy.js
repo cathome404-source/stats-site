@@ -12,19 +12,19 @@ export function renderEconomy() {
   });
   const donut = donutChart({
     slices: GDP_SECTORS.map((s) => ({ label: s.label, value: s.pct })),
-    title: 'GDP by sector, 2024 (% of GDP)',
+    title: 'GDP by sector, 2024 (percent of GDP)',
   });
   const inflationChart = lineChart({
     labels: INFLATION.map((d) => String(d.year)),
     values: INFLATION.map((d) => d.value),
-    title: 'Inflation (% yoy, December)',
+    title: 'Inflation (percent yoy, December)',
     unit: 'Percent, year on year',
     color: '#e8a33d',
   });
   const unemploymentChart = lineChart({
     labels: UNEMPLOYMENT.map((d) => String(d.year)),
     values: UNEMPLOYMENT.map((d) => d.value),
-    title: 'Unemployment (% of labour force)',
+    title: 'Unemployment (percent of labour force)',
     unit: 'Percent of labour force',
     color: '#0f2a3d',
   });
@@ -42,13 +42,13 @@ export function renderEconomy() {
   <p class="lede">A $1.37 trillion economy growing 5.03% in 2024, with services and manufacturing driving output and inflation back down to 1.57%.</p>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">GDP by sector, 2024 (% of GDP)</div>${donut}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">GDP by sector, 2024 (percent of GDP)</div>${donut}</div></div>
     <div class="card"><div class="chart-box"><div class="chart-title">GDP trend, 2019–2024 (Rp trillion)</div>${gdpChart}</div></div>
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (% yoy, December)</div>${inflationChart}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Unemployment, 2019–2024 (% of labour force)</div>${unemploymentChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (percent yoy, December)</div>${inflationChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Unemployment, 2019–2024 (percent of labour force)</div>${unemploymentChart}</div></div>
   </div>
 
   <div class="card">
