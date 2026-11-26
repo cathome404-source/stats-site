@@ -1,27 +1,31 @@
 // Angka Nusantara — Indonesia in Numbers
-// Figures: BPS-style estimates 2019–2024; provincial populations sum to the national total.
+// Figures: BPS 2019–2025 annual series; 2026 latest available (see LATEST_2026);
+// provincial populations sum to the national total (SUPAS 2025 = 284.67M).
+// Sources: BPS press releases; World Bank WDI for GDP USD.
+// Full detail: research-2025-2026.md.
 
-// National headline indicators, 2024 unless noted.
+// National headline indicators, 2025 unless noted.
+// hdi is IPM (BPS), 0–1 scale = IPM/100; national 2025 = 75.90.
 export const NATIONAL = {
-  gdpUsd: 1.37, // trillion USD
-  gdpRp: 22139, // trillion IDR
-  gdpPerCapitaUsd: 4862,
-  gdpPerCapitaRp: 78.6, // million IDR
-  gdpGrowth: 5.03, // % yoy, 2024
-  inflation: 1.57, // % yoy, Dec 2024
-  unemployment: 4.91, // % of labour force, Aug 2024
-  poverty: 8.57, // %, Sep 2024
-  hdi: 0.728,
-  lifeExpectancy: 74.1, // years
-  literacy: 96.0, // % adults
-  schooling: 9.0, // mean years of schooling
-  tfr: 2.0, // children per woman
+  gdpUsd: 1.45, // trillion USD
+  gdpRp: 23821, // trillion IDR
+  gdpPerCapitaUsd: 5083,
+  gdpPerCapitaRp: 83.7, // million IDR
+  gdpGrowth: 5.11, // % yoy, 2025
+  inflation: 2.92, // % yoy, Dec 2025
+  unemployment: 4.85, // % of labour force, Aug 2025
+  poverty: 8.25, // %, Sep 2025
+  hdi: 0.759, // IPM (BPS) 75.90 / 100
+  lifeExpectancy: 74.5, // years, UHH 74.47
+  literacy: 97.1, // % adults
+  schooling: 9.1, // mean years of schooling, RLS 9.07
+  tfr: 2.1, // children per woman, 2.13
   islands: 17508,
   areaKm2: 1.905, // million km2
-  density: 148, // people per km2
+  density: 149, // people per km2 (284.67M / 1.905M km2)
 };
 
-// Age structure, % of population.
+// Age structure, % of population (2024 — no verified 2025 update).
 export const AGE_STRUCTURE = [
   { label: '0–14', pct: 25.3 },
   { label: '15–24', pct: 17.3 },
@@ -32,7 +36,7 @@ export const AGE_STRUCTURE = [
   { label: '65+', pct: 6.6 },
 ];
 
-// Population pyramid, % of population by sex.
+// Population pyramid, % of population by sex (2024 — no verified 2025 update).
 // Note: totals sum to ~99.9% due to rounding.
 export const PYRAMID = [
   { band: '0–14', male: 13.0, female: 12.3 },
@@ -53,9 +57,12 @@ export const GDP_TREND_RP = [
   { year: 2022, value: 19588 },
   { year: 2023, value: 20892 },
   { year: 2024, value: 22139 },
+  { year: 2025, value: 23821 },
 ];
 
 // GDP by sector, % of GDP (sums to 100.0).
+// 2024 shares; 2025 full 17-sector breakdown in BPS publication
+// 'Pendapatan Nasional Indonesia 2021–2025'.
 export const GDP_SECTORS = [
   { label: 'Agriculture', pct: 13.7 },
   { label: 'Manufacturing', pct: 18.7 },
@@ -75,9 +82,10 @@ export const INFLATION = [
   { year: 2022, value: 5.51 },
   { year: 2023, value: 2.61 },
   { year: 2024, value: 1.57 },
+  { year: 2025, value: 2.92 },
 ];
 
-// Unemployment, % of labour force.
+// Unemployment, % of labour force (August each year).
 export const UNEMPLOYMENT = [
   { year: 2019, value: 5.28 },
   { year: 2020, value: 7.07 },
@@ -85,9 +93,10 @@ export const UNEMPLOYMENT = [
   { year: 2022, value: 5.86 },
   { year: 2023, value: 5.45 },
   { year: 2024, value: 4.91 },
+  { year: 2025, value: 4.85 },
 ];
 
-// Poverty rate, % of population.
+// Poverty rate, % of population (September each year).
 export const POVERTY = [
   { year: 2019, value: 9.22 },
   { year: 2020, value: 10.19 },
@@ -95,6 +104,7 @@ export const POVERTY = [
   { year: 2022, value: 9.57 },
   { year: 2023, value: 9.36 },
   { year: 2024, value: 8.57 },
+  { year: 2025, value: 8.25 },
 ];
 
 // Population trend, millions.
@@ -105,50 +115,64 @@ export const POP_TREND = [
   { year: 2022, value: 276.4 },
   { year: 2023, value: 279.4 },
   { year: 2024, value: 281.8 },
+  { year: 2025, value: 284.7 },
 ];
 
 // 38 provinces, sorted by population descending.
-// pop: million people; hdi: 0–1; poverty: %; gdpPerCapitaRp: million IDR.
+// pop: million people, 2025 (SUPAS 2025); hdi: IPM (BPS) 2025 / 100, 0–1 scale.
+// poverty & gdpPerCapitaRp: 2024 (latest available at build time).
 export const PROVINCES = [
-  { name: 'Jawa Barat', pop: 49.9, hdi: 0.732, poverty: 7.5, gdpPerCapitaRp: 52 },
-  { name: 'Jawa Timur', pop: 41.8, hdi: 0.737, poverty: 10.4, gdpPerCapitaRp: 64 },
-  { name: 'Jawa Tengah', pop: 37.9, hdi: 0.723, poverty: 10.5, gdpPerCapitaRp: 44 },
-  { name: 'Sumatera Utara', pop: 16.0, hdi: 0.738, poverty: 8.3, gdpPerCapitaRp: 62 },
-  { name: 'Banten', pop: 12.4, hdi: 0.745, poverty: 5.6, gdpPerCapitaRp: 68 },
-  { name: 'DKI Jakarta', pop: 10.6, hdi: 0.822, poverty: 4.4, gdpPerCapitaRp: 322 },
-  { name: 'Sulawesi Selatan', pop: 9.4, hdi: 0.728, poverty: 8.7, gdpPerCapitaRp: 58 },
-  { name: 'Lampung', pop: 9.2, hdi: 0.712, poverty: 11.8, gdpPerCapitaRp: 42 },
-  { name: 'Sumatera Selatan', pop: 8.9, hdi: 0.715, poverty: 11.9, gdpPerCapitaRp: 66 },
-  { name: 'Riau', pop: 6.6, hdi: 0.740, poverty: 6.7, gdpPerCapitaRp: 178 },
-  { name: 'Sumatera Barat', pop: 6.0, hdi: 0.742, poverty: 5.9, gdpPerCapitaRp: 55 },
-  { name: 'Kalimantan Barat', pop: 5.9, hdi: 0.700, poverty: 7.1, gdpPerCapitaRp: 54 },
-  { name: 'Nusa Tenggara Timur', pop: 5.8, hdi: 0.670, poverty: 19.5, gdpPerCapitaRp: 26 },
-  { name: 'Nusa Tenggara Barat', pop: 5.8, hdi: 0.695, poverty: 13.0, gdpPerCapitaRp: 34 },
-  { name: 'Aceh', pop: 5.6, hdi: 0.725, poverty: 14.5, gdpPerCapitaRp: 48 },
-  { name: 'Bali', pop: 4.5, hdi: 0.760, poverty: 4.1, gdpPerCapitaRp: 62 },
-  { name: 'Kalimantan Selatan', pop: 4.2, hdi: 0.724, poverty: 4.3, gdpPerCapitaRp: 58 },
-  { name: 'Kalimantan Timur', pop: 3.9, hdi: 0.785, poverty: 6.0, gdpPerCapitaRp: 268 },
-  { name: 'DI Yogyakarta', pop: 3.9, hdi: 0.805, poverty: 11.1, gdpPerCapitaRp: 48 },
-  { name: 'Jambi', pop: 3.7, hdi: 0.726, poverty: 7.6, gdpPerCapitaRp: 62 },
-  { name: 'Sulawesi Tengah', pop: 3.1, hdi: 0.718, poverty: 12.4, gdpPerCapitaRp: 72 },
-  { name: 'Kalimantan Tengah', pop: 2.8, hdi: 0.727, poverty: 5.0, gdpPerCapitaRp: 68 },
-  { name: 'Sulawesi Tenggara', pop: 2.8, hdi: 0.724, poverty: 11.2, gdpPerCapitaRp: 58 },
-  { name: 'Sulawesi Utara', pop: 2.7, hdi: 0.755, poverty: 7.3, gdpPerCapitaRp: 62 },
-  { name: 'Kepulauan Riau', pop: 2.3, hdi: 0.795, poverty: 5.7, gdpPerCapitaRp: 186 },
-  { name: 'Bengkulu', pop: 2.1, hdi: 0.725, poverty: 14.3, gdpPerCapitaRp: 42 },
-  { name: 'Maluku', pop: 2.0, hdi: 0.715, poverty: 16.4, gdpPerCapitaRp: 38 },
-  { name: 'Sulawesi Barat', pop: 1.6, hdi: 0.695, poverty: 11.0, gdpPerCapitaRp: 42 },
-  { name: 'Kepulauan Bangka Belitung', pop: 1.5, hdi: 0.735, poverty: 4.5, gdpPerCapitaRp: 68 },
-  { name: 'Maluku Utara', pop: 1.4, hdi: 0.705, poverty: 6.4, gdpPerCapitaRp: 58 },
-  { name: 'Papua Pegunungan', pop: 1.4, hdi: 0.625, poverty: 34.5, gdpPerCapitaRp: 28 },
-  { name: 'Gorontalo', pop: 1.3, hdi: 0.705, poverty: 15.2, gdpPerCapitaRp: 38 },
-  { name: 'Papua Tengah', pop: 1.3, hdi: 0.645, poverty: 29.8, gdpPerCapitaRp: 48 },
-  { name: 'Papua', pop: 1.1, hdi: 0.625, poverty: 26.0, gdpPerCapitaRp: 62 },
-  { name: 'Kalimantan Utara', pop: 0.7, hdi: 0.745, poverty: 6.8, gdpPerCapitaRp: 165 },
-  { name: 'Papua Barat', pop: 0.6, hdi: 0.705, poverty: 20.0, gdpPerCapitaRp: 72 },
-  { name: 'Papua Barat Daya', pop: 0.6, hdi: 0.720, poverty: 18.5, gdpPerCapitaRp: 68 },
-  { name: 'Papua Selatan', pop: 0.5, hdi: 0.640, poverty: 28.0, gdpPerCapitaRp: 48 },
+  { name: 'Jawa Barat', pop: 50.9, hdi: 0.759, poverty: 7.5, gdpPerCapitaRp: 52 },
+  { name: 'Jawa Timur', pop: 42.1, hdi: 0.761, poverty: 10.4, gdpPerCapitaRp: 64 },
+  { name: 'Jawa Tengah', pop: 38.3, hdi: 0.748, poverty: 10.5, gdpPerCapitaRp: 44 },
+  { name: 'Sumatera Utara', pop: 15.8, hdi: 0.765, poverty: 8.3, gdpPerCapitaRp: 62 },
+  { name: 'Banten', pop: 12.6, hdi: 0.773, poverty: 5.6, gdpPerCapitaRp: 68 },
+  { name: 'DKI Jakarta', pop: 10.7, hdi: 0.851, poverty: 4.4, gdpPerCapitaRp: 322 },
+  { name: 'Sulawesi Selatan', pop: 9.6, hdi: 0.759, poverty: 8.7, gdpPerCapitaRp: 58 },
+  { name: 'Lampung', pop: 9.5, hdi: 0.740, poverty: 11.8, gdpPerCapitaRp: 42 },
+  { name: 'Sumatera Selatan', pop: 8.9, hdi: 0.748, poverty: 11.9, gdpPerCapitaRp: 66 },
+  { name: 'Riau', pop: 6.8, hdi: 0.763, poverty: 6.7, gdpPerCapitaRp: 178 },
+  { name: 'Sumatera Barat', pop: 5.9, hdi: 0.773, poverty: 5.9, gdpPerCapitaRp: 55 },
+  { name: 'Kalimantan Barat', pop: 5.8, hdi: 0.721, poverty: 7.1, gdpPerCapitaRp: 54 },
+  { name: 'Nusa Tenggara Timur', pop: 5.7, hdi: 0.699, poverty: 19.5, gdpPerCapitaRp: 26 },
+  { name: 'Nusa Tenggara Barat', pop: 5.7, hdi: 0.740, poverty: 13.0, gdpPerCapitaRp: 34 },
+  { name: 'Aceh', pop: 5.6, hdi: 0.762, poverty: 14.5, gdpPerCapitaRp: 48 },
+  { name: 'Bali', pop: 4.5, hdi: 0.794, poverty: 4.1, gdpPerCapitaRp: 62 },
+  { name: 'Kalimantan Selatan', pop: 4.3, hdi: 0.761, poverty: 4.3, gdpPerCapitaRp: 58 },
+  { name: 'Kalimantan Timur', pop: 4.1, hdi: 0.794, poverty: 6.0, gdpPerCapitaRp: 268 },
+  { name: 'DI Yogyakarta', pop: 3.8, hdi: 0.825, poverty: 11.1, gdpPerCapitaRp: 48 },
+  { name: 'Jambi', pop: 3.8, hdi: 0.751, poverty: 7.6, gdpPerCapitaRp: 62 },
+  { name: 'Sulawesi Tengah', pop: 3.2, hdi: 0.728, poverty: 12.4, gdpPerCapitaRp: 72 },
+  { name: 'Kalimantan Tengah', pop: 2.8, hdi: 0.749, poverty: 5.0, gdpPerCapitaRp: 68 },
+  { name: 'Sulawesi Tenggara', pop: 2.8, hdi: 0.743, poverty: 11.2, gdpPerCapitaRp: 58 },
+  { name: 'Sulawesi Utara', pop: 2.7, hdi: 0.763, poverty: 7.3, gdpPerCapitaRp: 62 },
+  { name: 'Kepulauan Riau', pop: 2.2, hdi: 0.805, poverty: 5.7, gdpPerCapitaRp: 186 },
+  { name: 'Bengkulu', pop: 2.1, hdi: 0.757, poverty: 14.3, gdpPerCapitaRp: 42 },
+  { name: 'Maluku', pop: 2.0, hdi: 0.741, poverty: 16.4, gdpPerCapitaRp: 38 },
+  { name: 'Kepulauan Bangka Belitung', pop: 1.6, hdi: 0.753, poverty: 4.5, gdpPerCapitaRp: 68 },
+  { name: 'Sulawesi Barat', pop: 1.5, hdi: 0.712, poverty: 11.0, gdpPerCapitaRp: 42 },
+  { name: 'Papua Tengah', pop: 1.5, hdi: 0.606, poverty: 29.8, gdpPerCapitaRp: 48 },
+  { name: 'Papua Pegunungan', pop: 1.5, hdi: 0.549, poverty: 34.5, gdpPerCapitaRp: 28 },
+  { name: 'Maluku Utara', pop: 1.4, hdi: 0.725, poverty: 6.4, gdpPerCapitaRp: 58 },
+  { name: 'Gorontalo', pop: 1.2, hdi: 0.726, poverty: 15.2, gdpPerCapitaRp: 38 },
+  { name: 'Papua', pop: 1.1, hdi: 0.747, poverty: 26.0, gdpPerCapitaRp: 62 },
+  { name: 'Kalimantan Utara', pop: 0.8, hdi: 0.740, poverty: 6.8, gdpPerCapitaRp: 165 },
+  { name: 'Papua Barat Daya', pop: 0.6, hdi: 0.706, poverty: 18.5, gdpPerCapitaRp: 68 },
+  { name: 'Papua Barat', pop: 0.6, hdi: 0.685, poverty: 20.0, gdpPerCapitaRp: 72 },
+  { name: 'Papua Selatan', pop: 0.6, hdi: 0.695, poverty: 28.0, gdpPerCapitaRp: 48 },
 ];
+
+// Latest 2026 figures published as of 26 Nov 2026 (BPS).
+// ipm is IPM (BPS) 2026 = 76.59, 0–1 scale = IPM/100.
+export const LATEST_2026 = {
+  population: { value: 287.2, label: 'BPS projection, mid-2026' },
+  gdp: { q3Rp: 6741, q3Growth: 5.47, janSepGrowth: 5.45, label: 'Q3 2026, BPS 5 Nov 2026' },
+  inflation: { value: 3.23, label: 'Oct 2026 yoy, BPS 2 Nov 2026' },
+  unemployment: { value: 4.75, label: 'Aug 2026, BPS 5 Nov 2026' },
+  poverty: { value: 8.07, label: 'Mar 2026, BPS 5 Aug 2026' },
+  ipm: { value: 0.766, label: 'IPM 2026 = 76.59, BPS 5 Nov 2026' },
+  fullYearNote: 'Full-year 2026 GDP: BPS release Feb 2027',
+};
 
 // --- Helpers ---
 
