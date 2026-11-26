@@ -38,11 +38,11 @@ export function renderRegions(state = { query: '', sortKey: 'pop', sortDir: 'des
       <h3>${esc(sel.name)}</h3>
       <dl>
         <div><dt>Population</dt><dd>${sel.pop.toFixed(1)} million</dd></div>
-        <div><dt>HDI</dt><dd>${sel.hdi.toFixed(3)}</dd></div>
+        <div><dt>IPM (BPS)</dt><dd>${sel.hdi.toFixed(3)}</dd></div>
         <div><dt>Poverty</dt><dd>${sel.poverty.toFixed(1)}%</dd></div>
         <div><dt>GDP/capita</dt><dd>Rp ${sel.gdpPerCapitaRp} million</dd></div>
       </dl>
-      <p>#${popRank} of 38 by population &middot; #${hdiRank} of 38 by HDI</p>`;
+      <p>#${popRank} of 38 by population &middot; #${hdiRank} of 38 by IPM</p>`;
   } else {
     detail = `<p>Click a province row to see its detail.</p>`;
   }
@@ -50,7 +50,7 @@ export function renderRegions(state = { query: '', sortKey: 'pop', sortDir: 'des
   return `
 <section>
   <h1>Regions &mdash; 38 Provinces</h1>
-  <p class="lede">All 38 provinces of Indonesia, from Jawa Barat's 49.9 million people to Papua Selatan's 0.5 million. Search, sort, or click a row to see a province in detail.</p>
+  <p class="lede">All 38 provinces of Indonesia, from Jawa Barat's 50.9 million people to Papua Selatan's 0.6 million. Search, sort, or click a row to see a province in detail.</p>
 
   <input type="search" class="search-box" id="region-search" value="${esc(state.query || '')}" placeholder="Search provinces&hellip;" aria-label="Search provinces">
 
@@ -58,7 +58,7 @@ export function renderRegions(state = { query: '', sortKey: 'pop', sortDir: 'des
     <thead><tr>
       <th>Province</th>
       <th class="${sortClass('pop')}" data-sort="pop">Population (M)</th>
-      <th class="${sortClass('hdi')}" data-sort="hdi">HDI</th>
+      <th class="${sortClass('hdi')}" data-sort="hdi">IPM (BPS)</th>
       <th class="${sortClass('poverty')}" data-sort="poverty">Poverty %</th>
       <th class="${sortClass('gdpPerCapitaRp')}" data-sort="gdpPerCapitaRp">GDP/capita (Rp M)</th>
     </tr></thead>
@@ -68,6 +68,6 @@ export function renderRegions(state = { query: '', sortKey: 'pop', sortDir: 'des
 
   <div class="detail-panel">${detail}</div>
 
-  <p class="footnote">Source: BPS-style estimates, 2019&ndash;2024. Figures are rounded estimates; provincial populations sum to the national total.</p>
+  <p class="footnote">Source: BPS, 2019–2025 (SUPAS 2025; World Bank WDI for GDP in USD). Provincial populations are 2025 and IPM is 2025; poverty and GDP per capita are 2024. Provincial figures sum to 284.6M due to rounding; national total 284.7M (SUPAS 2025).</p>
 </section>`;
 }

@@ -17,14 +17,14 @@ export function renderEconomy() {
   const inflationChart = lineChart({
     labels: INFLATION.map((d) => String(d.year)),
     values: INFLATION.map((d) => d.value),
-    title: 'Inflation (1.57% yoy, December)',
+    title: 'Inflation (2.92% yoy, December)',
     unit: 'Percent, year on year',
     color: '#e8a33d',
   });
   const unemploymentChart = lineChart({
     labels: UNEMPLOYMENT.map((d) => String(d.year)),
     values: UNEMPLOYMENT.map((d) => d.value),
-    title: 'Unemployment (4.91% of labour force)',
+    title: 'Unemployment (4.85% of labour force)',
     unit: 'Percent of labour force',
     color: '#0f2a3d',
   });
@@ -39,16 +39,16 @@ export function renderEconomy() {
   return `
 <section>
   <h1>Economy</h1>
-  <p class="lede">A $1.37 trillion economy growing 5.03% in 2024, with services and manufacturing driving output and inflation back down to 1.57%.</p>
+  <p class="lede">A $1.45 trillion economy growing 5.11% in 2025, with services and manufacturing driving output and inflation at 2.92%.</p>
 
   <div class="grid-2">
     <div class="card"><div class="chart-box"><div class="chart-title">GDP by sector, 2024 (share of GDP)</div>${donut}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">GDP trend, 2019–2024 (Rp trillion)</div>${gdpChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">GDP trend, 2019–2025 (Rp trillion)</div>${gdpChart}</div></div>
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (1.57% yoy, December)</div>${inflationChart}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Unemployment, 2019–2024 (4.91% of labour force)</div>${unemploymentChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2025 (2.92% yoy, December)</div>${inflationChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Unemployment, 2019–2025 (4.85% of labour force)</div>${unemploymentChart}</div></div>
   </div>
 
   <div class="card">
@@ -61,11 +61,11 @@ export function renderEconomy() {
   </div>
 
   <div class="grid-3">
-    <div class="card"><div class="kpi-value">${NATIONAL.gdpGrowth.toFixed(2)}%</div><div class="kpi-label">GDP growth</div><p>Real GDP grew ${NATIONAL.gdpGrowth.toFixed(2)}% in 2024, on a nominal GDP of Rp ${fmt(NATIONAL.gdpRp)} trillion ($${NATIONAL.gdpUsd.toFixed(2)} trillion).</p></div>
-    <div class="card"><div class="kpi-value">${NATIONAL.inflation.toFixed(2)}%</div><div class="kpi-label">Inflation</div><p>Inflation was ${NATIONAL.inflation.toFixed(2)}% year on year in December 2024, down from 5.51% in 2022.</p></div>
-    <div class="card"><div class="kpi-value">${NATIONAL.unemployment.toFixed(2)}%</div><div class="kpi-label">Unemployment</div><p>Unemployment was ${NATIONAL.unemployment.toFixed(2)}% of the labour force in August 2024, the lowest since 2019.</p></div>
+    <div class="card"><div class="kpi-value">${NATIONAL.gdpGrowth.toFixed(2)}%</div><div class="kpi-label">GDP growth</div><p>Real GDP grew ${NATIONAL.gdpGrowth.toFixed(2)}% in 2025, on a nominal GDP of Rp ${fmt(NATIONAL.gdpRp)} trillion ($${NATIONAL.gdpUsd.toFixed(2)} trillion).</p></div>
+    <div class="card"><div class="kpi-value">${NATIONAL.inflation.toFixed(2)}%</div><div class="kpi-label">Inflation</div><p>Inflation was ${NATIONAL.inflation.toFixed(2)}% year on year in December 2025, down from 5.51% in 2022.</p></div>
+    <div class="card"><div class="kpi-value">${NATIONAL.unemployment.toFixed(2)}%</div><div class="kpi-label">Unemployment</div><p>Unemployment was ${NATIONAL.unemployment.toFixed(2)}% of the labour force in August 2025, the lowest since 2019.</p></div>
   </div>
 
-  <p class="footnote">Source: BPS-style estimates, 2019&ndash;2024.</p>
+  <p class="footnote">Source: BPS, 2019&ndash;2025 (SUPAS 2025; World Bank WDI for GDP in USD). GDP by sector is 2024 (2025 full 17-sector breakdown in BPS publication &lsquo;Pendapatan Nasional Indonesia 2021&ndash;2025&rsquo;).</p>
 </section>`;
 }

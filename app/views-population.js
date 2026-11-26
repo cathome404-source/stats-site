@@ -5,7 +5,7 @@ import { barChart, lineChart, pyramidChart, esc } from './charts.js';
 
 export function renderPopulation() {
   const total = totalPopulation();
-  const pop = total.toFixed(1);
+  const pop = POP_TREND[POP_TREND.length - 1].value.toFixed(1);
   const top10 = topProvinces(10);
 
   const pyramid = pyramidChart({ bands: PYRAMID, title: 'Population pyramid, 2024 (share of population)' });
@@ -33,7 +33,7 @@ export function renderPopulation() {
   return `
 <section>
   <h1>Population</h1>
-  <p class="lede">Indonesia had ${pop} million people in 2024 &mdash; a young population, still growing by about 2.4 million a year, with 156.5 million (55.5%) living on Java. The top 10 provinces alone hold 202.7 million people, 71.9% of the country.</p>
+  <p class="lede">Indonesia had ${pop} million people in 2025 &mdash; a young population, still growing by about 2.5 million a year, with 158.4 million (55.6%) living on Java. The top 10 provinces alone hold 205.2 million people, 72.1% of the country.</p>
 
   <div class="grid-2">
     <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (share of population)</div>${pyramid}</div>
@@ -43,8 +43,8 @@ export function renderPopulation() {
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Population trend, 2019–2024 (millions)</div>${trendChart}</div>
-      <p class="footnote">Population rose from 269.6 million in 2019 to ${pop} million in 2024.</p></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Population trend, 2019–2025 (millions)</div>${trendChart}</div>
+      <p class="footnote">Population rose from 269.6 million in 2019 to ${pop} million in 2025.</p></div>
     <div class="card">
       <div class="chart-title">Top 10 provinces by population</div>
       <div class="table-wrap"><table class="data-table">
@@ -52,10 +52,10 @@ export function renderPopulation() {
         <tbody>${rows}</tbody>
         <tfoot><tr><td>Top 10 total</td><td class="num">${top10Pop.toFixed(1)}</td><td class="num">${top10Share}%</td></tr></tfoot>
       </table></div>
-      <p class="footnote">Share % is each province's population divided by the national total of ${pop} million; shares are rounded to one decimal.</p>
+      <p class="footnote">Share % is each province's population divided by the sum of provincial figures (284.6 million); shares are rounded to one decimal. Provincial figures sum to 284.6M due to rounding; national total 284.7M (SUPAS 2025).</p>
     </div>
   </div>
 
-  <p class="footnote">Source: BPS-style estimates, 2019&ndash;2024.</p>
+  <p class="footnote">Source: BPS, 2019&ndash;2025 (SUPAS 2025; World Bank WDI for GDP in USD). Age structure and pyramid are 2024 (no verified 2025 update).</p>
 </section>`;
 }
