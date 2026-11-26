@@ -1,0 +1,263 @@
+/* Angka Nusantara — Indonesia in Numbers
+   Original design: deep navy #0f2a3d, warm sand #f6f1e7,
+   amber #e8a33d, teal #1f7a6d. System font stack only — no external fonts. */
+
+:root {
+  --navy: #0f2a3d;
+  --navy-light: #1a3d54;
+  --sand: #f6f1e7;
+  --sand-dark: #efe7d3;
+  --amber: #e8a33d;
+  --amber-dark: #b97e1f;
+  --teal: #1f7a6d;
+  --teal-dark: #155c51;
+  --ink: #1c2733;
+  --muted: #5d6b78;
+  --line: #e3dccb;
+  --card: #fffdf8;
+  --danger: #b3402e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a { color: var(--teal-dark); }
+a:hover { color: var(--amber-dark); }
+
+/* ---- Header & nav ---- */
+.site-header {
+  background: var(--navy);
+  color: #f6f1e7;
+  padding: 18px 24px 0;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+.site-header h1 .accent { color: var(--amber); }
+.site-header .tagline {
+  margin: 2px 0 14px;
+  color: #c9d4dc;
+  font-size: 0.95rem;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 10px;
+}
+.nav a {
+  color: #d7e0e6;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px 6px 0 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav a:hover { background: var(--navy-light); color: #fff; }
+.nav a.active {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px;
+}
+main h1 { margin: 4px 0 6px; font-size: 1.6rem; color: var(--navy); }
+main h2 { margin: 4px 0 6px; font-size: 1.45rem; color: var(--navy); }
+main h3 { margin: 0 0 8px; font-size: 1.1rem; color: var(--navy); }
+.lede { color: var(--muted); margin-top: 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 18px 0 22px;
+}
+.kpi-card {
+  flex: 1 1 170px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 3px rgba(15, 42, 61, 0.08);
+}
+.kpi-card:nth-child(2n) { border-top-color: var(--amber); }
+.kpi-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.15;
+}
+.kpi-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.kpi-sub { font-size: 0.85rem; color: var(--muted); }
+
+/* ---- Cards & grids ---- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(15, 42, 61, 0.07);
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.grid-2 > .card, .grid-3 > .card { margin-bottom: 0; }
+
+/* ---- Charts ---- */
+.chart-box { width: 100%; overflow: hidden; }
+.chart-box svg { display: block; }
+.chart-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+
+/* ---- Tables ---- */
+.table-wrap { overflow-x: auto; }
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: var(--card);
+}
+.data-table th, .data-table td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.data-table th {
+  background: var(--navy);
+  color: #f6f1e7;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.data-table th.sortable { cursor: pointer; }
+.data-table th.sortable:hover { background: var(--navy-light); }
+.data-table th.sortable::after { content: " \21C5"; color: var(--amber); }
+.data-table th.sortable.asc::after { content: " \25B2"; }
+.data-table th.sortable.desc::after { content: " \25BC"; }
+.data-table tbody tr:nth-child(even) { background: #faf6ec; }
+.data-table tbody tr:hover { background: #f3ead2; }
+.data-table tbody tr.clickable { cursor: pointer; }
+.data-table tbody tr.selected { background: #f3ead2; box-shadow: inset 3px 0 0 var(--amber); }
+.data-table td.num, .data-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---- Controls ---- */
+.search-box {
+  width: 100%;
+  max-width: 340px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.search-box:focus, select.compare-select:focus {
+  outline: 2px solid var(--amber);
+  outline-offset: 1px;
+}
+select.compare-select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+  min-width: 220px;
+  width: 100%;
+  margin-top: 6px;
+}
+.card > label { font-weight: 600; color: var(--navy); }
+.compare-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.compare-row label { font-weight: 600; color: var(--navy); }
+
+/* ---- Detail panel ---- */
+.detail-panel {
+  background: var(--navy);
+  color: #f6f1e7;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+.detail-panel h3 { color: var(--amber); margin-top: 0; }
+.detail-panel dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+.detail-panel dt { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #c9d4dc; }
+.detail-panel dd { margin: 2px 0 0; font-size: 1.25rem; font-weight: 700; }
+
+/* ---- Misc ---- */
+.footnote {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.fact-list { margin: 0; padding-left: 20px; }
+.fact-list li { margin-bottom: 8px; }
+.bar-positive { fill: var(--teal); }
+.bar-negative { fill: var(--danger); }
+.site-footer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 24px 28px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 720px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .kpi-strip { flex-direction: column; }
+  .kpi-card { flex: 1 1 auto; }
+  main { padding: 16px; }
+  .site-header { padding: 14px 16px 0; }
+  .site-header h1 { font-size: 1.3rem; }
+  .nav a { padding: 7px 10px; font-size: 0.9rem; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data-table { min-width: 560px; }
+  .kpi-value { font-size: 1.45rem; }
+}
