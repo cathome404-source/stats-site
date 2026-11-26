@@ -33,17 +33,17 @@ export function renderPopulation() {
   return `
 <section>
   <h1>Population</h1>
-  <p class="lede">Indonesia had ${pop} million people in 2024 &mdash; a young population, still growing by about 2 million a year, concentrated on Java.</p>
+  <p class="lede">Indonesia had ${pop} million people in 2024 &mdash; a young population, still growing by about 2.4 million a year, with 156.5 million (55.5%) living on Java. The top 10 provinces alone hold 202.7 million people, 71.9% of the country.</p>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid</div>${pyramid}</div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (% of population)</div>${pyramid}</div>
       <p class="footnote">${esc(PYRAMID_FOOTNOTE)} Male and female shares are percentages of the total population.</p></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Age structure</div>${ageChart}</div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Age structure, 2024 (% of population)</div>${ageChart}</div>
       <p class="footnote">A quarter of the population (25.3%) is under 15; 6.6% is 65 or older.</p></div>
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Population trend</div>${trendChart}</div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Population trend, 2019–2024 (millions)</div>${trendChart}</div>
       <p class="footnote">Population rose from 269.6 million in 2019 to ${pop} million in 2024.</p></div>
     <div class="card">
       <div class="chart-title">Top 10 provinces by population</div>

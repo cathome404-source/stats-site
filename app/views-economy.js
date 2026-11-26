@@ -42,13 +42,13 @@ export function renderEconomy() {
   <p class="lede">A $1.37 trillion economy growing 5.03% in 2024, with services and manufacturing driving output and inflation back down to 1.57%.</p>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">GDP by sector</div>${donut}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">GDP trend</div>${gdpChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">GDP by sector, 2024 (% of GDP)</div>${donut}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">GDP trend, 2019–2024 (Rp trillion)</div>${gdpChart}</div></div>
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Inflation</div>${inflationChart}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Unemployment</div>${unemploymentChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (% yoy, December)</div>${inflationChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Unemployment, 2019–2024 (% of labour force)</div>${unemploymentChart}</div></div>
   </div>
 
   <div class="card">

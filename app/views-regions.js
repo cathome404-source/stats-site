@@ -21,12 +21,12 @@ export function renderRegions(state = { query: '', sortKey: 'pop', sortDir: 'des
     return sortDir === 'asc' ? diff : -diff;
   });
 
-  const arrow = (key) => (sortKey === key ? (sortDir === 'asc' ? '↑' : '↓') : '⇅');
+  // Sort arrows come from CSS (.sortable::after); the header text carries no arrow.
   const sortClass = (key) => `sortable${sortKey === key ? (sortDir === 'asc' ? ' asc' : ' desc') : ''}`;
 
   const rows = sorted.map((p) => {
-    const selected = state.selected === p.name ? ' class="selected"' : '';
-    return `<tr data-name="${esc(p.name)}"${selected}><td>${esc(p.name)}</td><td class="num">${p.pop.toFixed(1)}</td><td class="num">${p.hdi.toFixed(3)}</td><td class="num">${p.poverty.toFixed(1)}%</td><td class="num">${p.gdpPerCapitaRp}</td></tr>`;
+    const selected = state.selected === p.name ? ' selected' : '';
+    return `<tr data-name="${esc(p.name)}" class="clickable${selected}"><td>${esc(p.name)}</td><td class="num">${p.pop.toFixed(1)}</td><td class="num">${p.hdi.toFixed(3)}</td><td class="num">${p.poverty.toFixed(1)}%</td><td class="num">${p.gdpPerCapitaRp}</td></tr>`;
   }).join('');
 
   const sel = state.selected ? provinceByName(state.selected) : null;
@@ -52,17 +52,15 @@ export function renderRegions(state = { query: '', sortKey: 'pop', sortDir: 'des
   <h1>Regions &mdash; 38 Provinces</h1>
   <p class="lede">All 38 provinces of Indonesia, from Jawa Barat's 49.9 million people to Papua Selatan's 0.5 million. Search, sort, or click a row to see a province in detail.</p>
 
-  <div class="search-box">
-    <input type="search" id="region-search" value="${esc(state.query || '')}" placeholder="Search provinces&hellip;" aria-label="Search provinces">
-  </div>
+  <input type="search" class="search-box" id="region-search" value="${esc(state.query || '')}" placeholder="Search provinces&hellip;" aria-label="Search provinces">
 
   <div class="table-wrap"><table class="data-table">
     <thead><tr>
       <th>Province</th>
-      <th class="${sortClass('pop')}" data-sort="pop">Population (M) ${arrow('pop')}</th>
-      <th class="${sortClass('hdi')}" data-sort="hdi">HDI ${arrow('hdi')}</th>
-      <th class="${sortClass('poverty')}" data-sort="poverty">Poverty % ${arrow('poverty')}</th>
-      <th class="${sortClass('gdpPerCapitaRp')}" data-sort="gdpPerCapitaRp">GDP/capita (Rp M) ${arrow('gdpPerCapitaRp')}</th>
+      <th class="${sortClass('pop')}" data-sort="pop">Population (M)</th>
+      <th class="${sortClass('hdi')}" data-sort="hdi">HDI</th>
+      <th class="${sortClass('poverty')}" data-sort="poverty">Poverty %</th>
+      <th class="${sortClass('gdpPerCapitaRp')}" data-sort="gdpPerCapitaRp">GDP/capita (Rp M)</th>
     </tr></thead>
     <tbody>${rows}</tbody>
   </table></div>

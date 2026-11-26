@@ -31,7 +31,7 @@ export function renderOverview() {
   return `
 <section>
   <h1>Indonesia in Numbers</h1>
-  <p class="lede">One page, five headline indicators and the shape of a nation of ${pop} million people across 38 provinces.</p>
+  <p class="lede">281.8 million people across 38 provinces and 17,508 islands; a $1.37 trillion economy that grew 5.03% in 2024; HDI 0.728 and poverty down to 8.57% — the five headline numbers, then the detail.</p>
 
   <div class="kpi-strip">
     <div class="kpi-card"><div class="kpi-value">${pop}M</div><div class="kpi-label">Population</div><div class="kpi-sub">2024, sum of 38 provinces</div></div>
@@ -42,12 +42,12 @@ export function renderOverview() {
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">GDP trend</div>${gdpChart}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Inflation</div>${inflationChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">GDP trend, 2019–2024 (Rp trillion)</div>${gdpChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (% yoy, December)</div>${inflationChart}</div></div>
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid</div>${pyramid}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (% of population)</div>${pyramid}</div></div>
     <div class="card">
       <div class="chart-title">Top 5 provinces by population</div>
       <div class="table-wrap"><table class="data-table">

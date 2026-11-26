@@ -19,7 +19,7 @@ export function renderCompare(state = { a: 'DKI Jakarta', b: 'Jawa Barat' }) {
   const chart = barChart({
     labels: [a.name, b.name],
     values: [a.pop, b.pop],
-    title: 'Population comparison (millions)',
+    title: 'Population, millions — A vs B',
     unit: 'Millions of people',
     color: '#1f7a6d',
   });
@@ -27,7 +27,7 @@ export function renderCompare(state = { a: 'DKI Jakarta', b: 'Jawa Barat' }) {
   return `
 <section>
   <h1>Compare Provinces</h1>
-  <p class="lede">Pick any two provinces and see how they stack up: population, human development, poverty and income per person.</p>
+  <p class="lede">Pick any two provinces and see how they stack up. The default pair shows the contrast starkly: DKI Jakarta has 10.6 million people, HDI 0.822 and GDP/capita Rp 322 million, while Jawa Barat has 49.9 million people, HDI 0.732 and GDP/capita Rp 52 million.</p>
 
   <div class="grid-2">
     <div class="card">

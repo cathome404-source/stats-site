@@ -41,8 +41,8 @@ export function renderHealth() {
   <p class="lede">National HDI is ${NATIONAL.hdi.toFixed(3)} in 2024, but the gap between the highest and lowest provinces is wide — from DKI Jakarta at 0.822 to Papua and Papua Pegunungan at 0.625.</p>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Highest HDI</div>${hdiTopChart}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Lowest HDI</div>${hdiBottomChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Highest HDI by province, 2024</div>${hdiTopChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Lowest HDI by province, 2024</div>${hdiBottomChart}</div></div>
   </div>
 
   <div class="grid-2">
@@ -53,7 +53,7 @@ export function renderHealth() {
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Poverty trend</div>${povertyChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Poverty trend, 2019–2024 (% of population)</div>${povertyChart}</div></div>
     <div class="card">
       <div class="chart-title">Highest poverty by province, 2024</div>
       <div class="table-wrap"><table class="data-table">

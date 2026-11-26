@@ -74,6 +74,7 @@ main {
   margin: 0 auto;
   padding: 24px;
 }
+main h1 { margin: 4px 0 6px; font-size: 1.6rem; color: var(--navy); }
 main h2 { margin: 4px 0 6px; font-size: 1.45rem; color: var(--navy); }
 main h3 { margin: 0 0 8px; font-size: 1.1rem; color: var(--navy); }
 .lede { color: var(--muted); margin-top: 0; }
@@ -171,6 +172,7 @@ table.data-table {
 .data-table tbody tr:nth-child(even) { background: #faf6ec; }
 .data-table tbody tr:hover { background: #f3ead2; }
 .data-table tbody tr.clickable { cursor: pointer; }
+.data-table tbody tr.selected { background: #f3ead2; box-shadow: inset 3px 0 0 var(--amber); }
 .data-table td.num, .data-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
 /* ---- Controls ---- */
@@ -197,7 +199,10 @@ select.compare-select {
   font: inherit;
   color: var(--ink);
   min-width: 220px;
+  width: 100%;
+  margin-top: 6px;
 }
+.card > label { font-weight: 600; color: var(--navy); }
 .compare-row {
   display: flex;
   flex-wrap: wrap;
