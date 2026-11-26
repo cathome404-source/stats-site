@@ -27,7 +27,7 @@ export function renderCompare(state = { a: 'DKI Jakarta', b: 'Jawa Barat' }) {
   return `
 <section>
   <h1>Compare Provinces</h1>
-  <p class="lede">Pick any two provinces and see how they stack up. The default pair shows the contrast starkly: DKI Jakarta has 10.6 million people, HDI 0.822 and GDP/capita Rp 322 million, while Jawa Barat has 49.9 million people, HDI 0.732 and GDP/capita Rp 52 million.</p>
+  <p class="lede">Pick any two provinces and see how they stack up. The default pair shows the contrast starkly: DKI Jakarta has 10.7 million people, IPM (BPS) 0.851 and GDP/capita Rp 322 million, while Jawa Barat has 50.9 million people, IPM (BPS) 0.759 and GDP/capita Rp 52 million.</p>
 
   <div class="grid-2">
     <div class="card">
@@ -46,7 +46,7 @@ export function renderCompare(state = { a: 'DKI Jakarta', b: 'Jawa Barat' }) {
       <thead><tr><th>Indicator</th><th>${esc(a.name)}</th><th>${esc(b.name)}</th><th>Difference (B&minus;A)</th></tr></thead>
       <tbody>
         <tr><td>Population (M)</td><td class="num">${a.pop.toFixed(1)}</td><td class="num">${b.pop.toFixed(1)}</td><td class="num">${signed(b.pop - a.pop, 1)}</td></tr>
-        <tr><td>HDI</td><td class="num">${a.hdi.toFixed(3)}</td><td class="num">${b.hdi.toFixed(3)}</td><td class="num">${signed(b.hdi - a.hdi, 3)}</td></tr>
+        <tr><td>IPM (BPS)</td><td class="num">${a.hdi.toFixed(3)}</td><td class="num">${b.hdi.toFixed(3)}</td><td class="num">${signed(b.hdi - a.hdi, 3)}</td></tr>
         <tr><td>Poverty %</td><td class="num">${a.poverty.toFixed(1)}%</td><td class="num">${b.poverty.toFixed(1)}%</td><td class="num">${signed(b.poverty - a.poverty, 1)} pp</td></tr>
         <tr><td>GDP/capita (Rp M)</td><td class="num">${fmt(a.gdpPerCapitaRp)}</td><td class="num">${fmt(b.gdpPerCapitaRp)}</td><td class="num">${signed(b.gdpPerCapitaRp - a.gdpPerCapitaRp, 0)}</td></tr>
       </tbody>
@@ -55,6 +55,6 @@ export function renderCompare(state = { a: 'DKI Jakarta', b: 'Jawa Barat' }) {
 
   <div class="card"><div class="chart-box"><div class="chart-title">Population comparison</div>${chart}</div></div>
 
-  <p class="footnote">Source: BPS-style estimates, 2019&ndash;2024. Figures are rounded estimates; provincial populations sum to the national total.</p>
+  <p class="footnote">Source: BPS, 2019–2025 (SUPAS 2025; World Bank WDI for GDP in USD). Provincial populations are 2025 and IPM is 2025; poverty and GDP per capita are 2024. Provincial figures sum to 284.6M due to rounding; national total 284.7M (SUPAS 2025).</p>
 </section>`;
 }
