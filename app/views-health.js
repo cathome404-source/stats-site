@@ -26,7 +26,7 @@ export function renderHealth() {
   const povertyChart = lineChart({
     labels: POVERTY.map((d) => String(d.year)),
     values: POVERTY.map((d) => d.value),
-    title: 'Poverty rate trend (percent of population)',
+    title: 'Poverty rate trend (8.57% of population)',
     unit: 'Percent of population',
     color: '#0f2a3d',
   });
@@ -53,7 +53,7 @@ export function renderHealth() {
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Poverty trend, 2019–2024 (percent of population)</div>${povertyChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Poverty trend, 2019–2024 (8.57% of population)</div>${povertyChart}</div></div>
     <div class="card">
       <div class="chart-title">Highest poverty by province, 2024</div>
       <div class="table-wrap"><table class="data-table">

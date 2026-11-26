@@ -8,11 +8,11 @@ export function renderPopulation() {
   const pop = total.toFixed(1);
   const top10 = topProvinces(10);
 
-  const pyramid = pyramidChart({ bands: PYRAMID, title: 'Population pyramid, 2024 (percent of population)' });
+  const pyramid = pyramidChart({ bands: PYRAMID, title: 'Population pyramid, 2024 (share of population)' });
   const ageChart = barChart({
     labels: AGE_STRUCTURE.map((d) => d.label),
     values: AGE_STRUCTURE.map((d) => d.pct),
-    title: 'Age structure (percent of population)',
+    title: 'Age structure (share of population)',
     unit: 'Percent of population',
   });
   const trendChart = lineChart({
@@ -36,9 +36,9 @@ export function renderPopulation() {
   <p class="lede">Indonesia had ${pop} million people in 2024 &mdash; a young population, still growing by about 2.4 million a year, with 156.5 million (55.5%) living on Java. The top 10 provinces alone hold 202.7 million people, 71.9% of the country.</p>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (percent of population)</div>${pyramid}</div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (share of population)</div>${pyramid}</div>
       <p class="footnote">${esc(PYRAMID_FOOTNOTE)} Male and female shares are percentages of the total population.</p></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Age structure, 2024 (percent of population)</div>${ageChart}</div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Age structure, 2024 (share of population)</div>${ageChart}</div>
       <p class="footnote">A quarter of the population (25.3%) is under 15; 6.6% is 65 or older.</p></div>
   </div>
 

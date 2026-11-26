@@ -17,11 +17,11 @@ export function renderOverview() {
   const inflationChart = lineChart({
     labels: INFLATION.map((d) => String(d.year)),
     values: INFLATION.map((d) => d.value),
-    title: 'Inflation (percent yoy, December)',
+    title: 'Inflation (1.57% yoy, December)',
     unit: 'Percent, year on year',
     color: '#e8a33d',
   });
-  const pyramid = pyramidChart({ bands: PYRAMID, title: 'Population pyramid, 2024 (percent of population)' });
+  const pyramid = pyramidChart({ bands: PYRAMID, title: 'Population pyramid, 2024 (share of population)' });
 
   const topRows = top5.map((p) => {
     const share = ((p.pop / total) * 100).toFixed(1);
@@ -43,11 +43,11 @@ export function renderOverview() {
 
   <div class="grid-2">
     <div class="card"><div class="chart-box"><div class="chart-title">GDP trend, 2019–2024 (Rp trillion)</div>${gdpChart}</div></div>
-    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (percent yoy, December)</div>${inflationChart}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Inflation, 2019–2024 (1.57% yoy, December)</div>${inflationChart}</div></div>
   </div>
 
   <div class="grid-2">
-    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (percent of population)</div>${pyramid}</div></div>
+    <div class="card"><div class="chart-box"><div class="chart-title">Population pyramid, 2024 (share of population)</div>${pyramid}</div></div>
     <div class="card">
       <div class="chart-title">Top 5 provinces by population</div>
       <div class="table-wrap"><table class="data-table">
