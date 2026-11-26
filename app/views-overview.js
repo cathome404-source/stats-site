@@ -18,7 +18,7 @@ export function renderOverview() {
     labels: INFLATION.map((d) => String(d.year)),
     values: INFLATION.map((d) => d.value),
     title: 'Inflation (% yoy, December)',
-    unit: '% year on year',
+    unit: 'Percent, year on year',
     color: '#e8a33d',
   });
   const pyramid = pyramidChart({ bands: PYRAMID, title: 'Population pyramid, 2024 (% of population)' });
